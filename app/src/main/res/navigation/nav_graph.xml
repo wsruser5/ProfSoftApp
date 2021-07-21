@@ -20,5 +20,14 @@
         android:id="@+id/signinScreen"
         android:name="com.mrz.profsoftapp.view.SigninScreen"
         android:label="signin_screen"
-        tools:layout="@layout/signin_screen" />
+        tools:layout="@layout/signin_screen" >
+        <action
+            android:id="@+id/action_signinScreen_to_profileScreen"
+            app:destination="@id/profileScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="com.mrz.profsoftapp.view.ProfileScreen"
+        android:label="profile_screen"
+        tools:layout="@layout/profile_screen" />
 </navigation>

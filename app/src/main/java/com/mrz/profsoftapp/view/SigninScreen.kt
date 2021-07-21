@@ -61,7 +61,7 @@ class SigninScreen : Fragment() {
         }
 
         binding.btnSignIn.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_loginScreen_to_signinScreen)
+            Navigation.findNavController(view).navigate(R.id.action_signinScreen_to_profileScreen)
         }
 
         return view
