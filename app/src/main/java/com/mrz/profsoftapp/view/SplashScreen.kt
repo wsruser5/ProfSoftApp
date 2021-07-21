@@ -1,18 +1,21 @@
 package com.mrz.profsoftapp.view
 
+import android.app.ActivityOptions
 import android.os.Bundle
 import android.os.Handler
+import android.util.Pair
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.navigation.Navigation
 import com.mrz.profsoftapp.R
-import com.mrz.profsoftapp.databinding.FragmentLoginScreenBinding
+import com.mrz.profsoftapp.databinding.SplashScreenBinding
 
-class LoginScreen : Fragment() {
+class SplashScreen : Fragment() {
 
-    private var _binding: FragmentLoginScreenBinding? = null
+    private var _binding: SplashScreenBinding? = null
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val binding get() = _binding!!
@@ -21,7 +24,7 @@ class LoginScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentLoginScreenBinding.inflate(inflater, container, false)
+        _binding = SplashScreenBinding.inflate(inflater, container, false)
         val view = binding.root
 
         val animProfs = AnimationUtils.loadAnimation(context, R.anim.profs_anim)
@@ -45,8 +48,13 @@ class LoginScreen : Fragment() {
                 binding.btnSignIn.visibility = View.VISIBLE
                 binding.btnSkip.visibility = View.VISIBLE
             },1000)
-
         },1000)
+
+        binding.btnSignIn.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_loginScreen_to_signinScreen, (ActivityOptions.makeSceneTransitionAnimation(
+                this.activity, Pair(binding.logo, "logo")
+            ).toBundle()))
+        }
 
         return view
     }

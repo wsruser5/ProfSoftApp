@@ -7,7 +7,18 @@
 
     <fragment
         android:id="@+id/loginScreen"
-        android:name="com.mrz.profsoftapp.view.LoginScreen"
+        android:name="com.mrz.profsoftapp.view.SplashScreen"
         android:label="fragment_login_screen"
-        tools:layout="@layout/fragment_login_screen" />
+        tools:layout="@layout/splash_screen" >
+        <action
+            android:id="@+id/action_loginScreen_to_signinScreen"
+            app:destination="@id/signinScreen"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/signinScreen"
+        android:name="com.mrz.profsoftapp.view.SigninScreen"
+        android:label="signin_screen"
+        tools:layout="@layout/signin_screen" />
 </navigation>
